@@ -11,10 +11,12 @@ import UIKit
 class PreviewViewController: UIViewController {
    
    var gif: Gif?
+   @IBOutlet weak var gifImage: UIImageView!
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
+      let url = gif!.url!
+      gifImage.image = UIImage.gif(url: url.absoluteString)
       // Do any additional setup after loading the view.
    }
    
@@ -25,8 +27,7 @@ class PreviewViewController: UIViewController {
    
    @IBAction func share(_ sender: UIButton) {
       let url = gif!.url!
-      let gifToShare = NSData(contentsOf: url)
-      let activityVC = UIActivityViewController(activityItems: [gifToShare], applicationActivities: nil)
+      let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
       activityVC.completionWithItemsHandler = { _, completed, _, _ in
          if completed {
             let _ = self.navigationController?.popToRootViewController(animated: true)

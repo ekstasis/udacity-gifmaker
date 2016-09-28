@@ -16,13 +16,33 @@ let loopCount = 0 // 0 means loop forever
 
 extension UIViewController: UINavigationControllerDelegate {
    
-   @IBAction public func launchVideoCamera(sender: AnyObject) {
+   @IBAction public func presentOptions(sender: UIButton) {
+      if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+         self.getVideo(source: UIImagePickerControllerSourceType.photoLibrary)
+      }  else {
+         let alertController = UIAlertController(title: "Choose Video", message: "Choose a method", preferredStyle: .actionSheet)
+         let cameraAction = UIAlertAction(title: "Video Camera", style: .default, handler: { _ in
+            self.getVideo(source: UIImagePickerControllerSourceType.camera)
+         })
+         let libraryAction = UIAlertAction(title: "Video Library", style: .default, handler: { _ in
+            self.getVideo(source: UIImagePickerControllerSourceType.photoLibrary)
+         })
+         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+         alertController.addAction(cameraAction)
+         alertController.addAction(libraryAction)
+         alertController.addAction(cancelAction)
+         present(alertController, animated: true, completion: nil)
+         alertController.view.tintColor = UIColor(colorLiteralRed: 1.0, green: 65.0/255.0, blue: 112.0/255.0, alpha: 1.0)
+      }
+   }
+   
+   func getVideo(source: UIImagePickerControllerSourceType) {
       
       // create image picker
       let picker = UIImagePickerController()
       
       // set picker options: sourcetype, mediatype,   allowsEditing, delegate
-      picker.sourceType = .camera
+      picker.sourceType = source
       picker.mediaTypes = [kUTTypeMovie as String]
       picker.allowsEditing = false
       picker.delegate = self
