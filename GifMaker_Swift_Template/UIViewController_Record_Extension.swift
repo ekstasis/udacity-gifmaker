@@ -63,7 +63,9 @@ extension UIViewController: UINavigationControllerDelegate {
    func display(gif: Gif) {
       let editorVC = storyboard?.instantiateViewController(withIdentifier: "GifEditorViewController") as! GifEditorViewController
       editorVC.gif = gif
-      navigationController?.pushViewController(editorVC, animated: true)
+      DispatchQueue.main.async {
+         self.navigationController?.pushViewController(editorVC, animated: true)
+      }
    }
    //   -(void)cropVideoToSquare:(NSURL*)rawVideoURL start:(NSNumber*)start duration:(NSNumber*)duration {
    //   //Create the AVAsset and AVAssetTrack
@@ -96,7 +98,8 @@ extension UIViewController: UINavigationControllerDelegate {
       //   AVMutableVideoCompositionLayerInstruction* transformer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
       let transformer = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
       //   CGAffineTransform t1 = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, -(videoTrack.naturalSize.width - videoTrack.naturalSize.height) /2 );
-      let centerTransform = CGAffineTransform(translationX: videoHeight, y: (videoWidth - videoHeight) / 2)
+//      let centerTransform = CGAffineTransform(scaleX: <#T##CGFloat#>, y: <#T##CGFloat#>)
+      let centerTransform = CGAffineTransform(translationX: videoHeight, y: -(videoWidth - videoHeight) / 2)
       //   CGAffineTransform t2 = CGAffineTransformRotate(t1, M_PI_2);
       let centerAndRotate = centerTransform.rotated(by: CGFloat(M_PI_2))
       //   [transformer setTransform:finalTransform atTime:kCMTimeZero];
@@ -155,10 +158,10 @@ extension UIViewController: UIImagePickerControllerDelegate {
       
       let mediaType = info[UIImagePickerControllerMediaType] as! CFString
       if mediaType == kUTTypeMovie {
-         print(info)
          let rawVideoURL = info[UIImagePickerControllerMediaURL] as! NSURL
          UISaveVideoAtPathToSavedPhotosAlbum(rawVideoURL.path!, nil, nil, nil)
          dismiss(animated: true, completion: nil)
+//         convertVideoToGif(videoURL: rawVideoURL as URL)
          cropVideoToSquare(videoURL: rawVideoURL as URL)
       }
    }

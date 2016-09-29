@@ -34,7 +34,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zVw-uv-suS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lpB-Vr-Vzf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hbv-Kk-KXX">
@@ -47,7 +47,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GifCell" id="2ru-Ed-G6h" customClass="GifCell">
-                                        <rect key="frame" x="72" y="8" width="177" height="177"/>
+                                        <rect key="frame" x="99" y="8" width="177" height="177"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
@@ -95,7 +95,7 @@
                                 <state key="normal" image="createButton"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-mr-O59">
-                                <frame key="frameInset" minX="16" minY="262" width="288" height="144"/>
+                                <frame key="frameInset" minX="16" minY="262" width="343" height="144"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graphicCollectionEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="IOx-EA-SOI"/>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's create some GIFs!! Get started by tapping the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gY-ir-reI">
@@ -164,7 +164,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8Ay-xf-bgi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pNa-Y5-au7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Idg-S9-dYE">
@@ -218,7 +218,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zEa-bK-uMp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Alv-iW-6pc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HQu-c2-zTO">
@@ -283,7 +283,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8DJ-Ka-ETF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="98u-Ei-l0c">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-bE-ygI">
@@ -336,7 +336,7 @@
                         <viewControllerLayoutGuide type="bottom" id="IJD-un-28D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uv4-dn-Ugs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-5B-Ruk">
