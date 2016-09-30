@@ -18,17 +18,17 @@
                         <color key="tintColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="aXC-Xw-CZL" kind="relationship" relationship="rootViewController" id="O6U-Pr-xGP"/>
+                        <segue destination="upq-jB-3dI" kind="relationship" relationship="rootViewController" id="oSu-ag-sOc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DM2-vZ-vXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12412" y="-4626"/>
         </scene>
-        <!--My Collection-->
+        <!--Saved Gifs-->
         <scene sceneID="ALv-Et-lNO">
             <objects>
-                <viewController storyboardIdentifier="SavedGifsViewController" title="My Collection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="upq-jB-3dI" customClass="SavedGifsViewController" customModule="GifMaker_Swift_Template" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavedGifsViewController" title="Saved Gifs" useStoryboardIdentifierAsRestorationIdentifier="YES" id="upq-jB-3dI" customClass="SavedGifsVC" customModule="GifMaker_Swift_Template" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E4A-ch-Oxv"/>
                         <viewControllerLayoutGuide type="bottom" id="zVw-uv-suS"/>
@@ -82,10 +82,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="upq-jB-3dI" id="Dq5-qq-gcM"/>
-                                    <outlet property="delegate" destination="upq-jB-3dI" id="7YP-ZL-2L5"/>
-                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhk-Vz-Mtq">
                                 <constraints>
@@ -93,9 +89,11 @@
                                     <constraint firstAttribute="height" constant="60" id="nD5-xT-Xdf"/>
                                 </constraints>
                                 <state key="normal" image="createButton"/>
+                                <connections>
+                                    <action selector="presentOptionsWithSender:" destination="upq-jB-3dI" eventType="touchUpInside" id="2mG-ZA-R4e"/>
+                                </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-mr-O59">
-                                <frame key="frameInset" minX="16" minY="262" width="343" height="144"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-mr-O59">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graphicCollectionEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="IOx-EA-SOI"/>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's create some GIFs!! Get started by tapping the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gY-ir-reI">
@@ -360,9 +358,6 @@
                                     <constraint firstAttribute="width" constant="60" id="nKa-D8-wqn"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="createButton"/>
-                                <connections>
-                                    <action selector="presentOptionsWithSender:" destination="aXC-Xw-CZL" eventType="touchUpInside" id="iFr-J7-XWW"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-6r-tbq">
                                 <subviews>

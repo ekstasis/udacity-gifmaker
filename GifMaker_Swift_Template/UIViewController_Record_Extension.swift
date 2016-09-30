@@ -49,18 +49,21 @@ extension UIViewController: UINavigationControllerDelegate {
       picker.delegate = self
       
       // present controller
-      present(picker, animated: true, completion: nil)
+      self.present(picker, animated: true, completion: nil)
       
    }
    
    func convertVideoToGif(videoURL: URL) {
       let regift = Regift(sourceFileURL: videoURL as URL, frameCount: frameCount, delayTime: delayTime, loopCount: loopCount)
-      let gifURL = regift.createGif()
-      let gif = Gif(gifURL: gifURL!, videoURL: videoURL, caption: nil)
-      display(gif: gif)
+      if let gifURL = regift.createGif() {
+         let gif = Gif(gifURL: gifURL, videoURL: videoURL, caption: nil)
+         display(gif: gif)
+      } else {
+         display(gif: nil)
+      }
    }
    
-   func display(gif: Gif) {
+   func display(gif: Gif?) {
       let editorVC = storyboard?.instantiateViewController(withIdentifier: "GifEditorViewController") as! GifEditorViewController
       editorVC.gif = gif
       DispatchQueue.main.async {
@@ -88,49 +91,31 @@ extension UIViewController: UINavigationControllerDelegate {
       let videoHeight = videoTrack.naturalSize.height
       let videoWidth = videoTrack.naturalSize.width
       let videoComposition = AVMutableVideoComposition()
-      videoComposition.renderSize = CGSize(width: videoTrack.naturalSize.height, height: videoHeight)
+      videoComposition.renderSize = CGSize(width: videoHeight, height: videoHeight)
       videoComposition.frameDuration = CMTimeMake(1, 30)
       
       let instruction = AVMutableVideoCompositionInstruction()
       instruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(60, 30))
       
       // rotate to portrait
-      //   AVMutableVideoCompositionLayerInstruction* transformer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
       let transformer = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
-      //   CGAffineTransform t1 = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, -(videoTrack.naturalSize.width - videoTrack.naturalSize.height) /2 );
-//      let centerTransform = CGAffineTransform(scaleX: <#T##CGFloat#>, y: <#T##CGFloat#>)
       let centerTransform = CGAffineTransform(translationX: videoHeight, y: -(videoWidth - videoHeight) / 2)
-      //   CGAffineTransform t2 = CGAffineTransformRotate(t1, M_PI_2);
       let centerAndRotate = centerTransform.rotated(by: CGFloat(M_PI_2))
-      //   [transformer setTransform:finalTransform atTime:kCMTimeZero];
       transformer.setTransform(centerAndRotate, at: kCMTimeZero)
-      //   instruction.layerInstructions = [NSArray arrayWithObject:transformer];
       instruction.layerInstructions = [transformer]
-      //   videoComposition.instructions = [NSArray arrayWithObject: instruction];
       videoComposition.instructions = [instruction]
       
       // export
-      //   AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:videoAsset presetName:AVAssetExportPresetHighestQuality] ;
       let exporter = AVAssetExportSession(asset: videoAsset, presetName: AVAssetExportPresetHighestQuality)
-      //   exporter.videoComposition = videoComposition;
       exporter?.videoComposition = videoComposition
-      //   NSString *path = [self createPath];
       let path = createPath()
-      //   exporter.outputURL = [NSURL fileURLWithPath:path];
-      //   exporter.outputFileType = AVFileTypeQuickTimeMovie;
       exporter?.outputURL = URL(fileURLWithPath: path)
       exporter?.outputFileType = AVFileTypeQuickTimeMovie
       exporter?.exportAsynchronously() {
          let croppedURL = exporter?.outputURL
+         print(croppedURL)
          self.convertVideoToGif(videoURL: croppedURL!)
       }
-      //   __block NSURL *croppedURL;
-      //
-      //   [exporter exportAsynchronouslyWithCompletionHandler:^(void){
-      //   croppedURL = exporter.outputURL;
-      //   [self convertVideoToGif:croppedURL start:start duration:duration];
-      //   }];
-      //   }
    }
    
    func createPath() -> String {
@@ -144,9 +129,14 @@ extension UIViewController: UINavigationControllerDelegate {
       } catch {
          print(error)
       }
+      print(try! fileManager.contentsOfDirectory(atPath: outputURL))
       outputURL = outputURL.appending("/output.mov")
       // Remove Existing File
-      do { try fileManager.removeItem(atPath: outputURL) } catch { print(error) }
+      do {
+         try fileManager.removeItem(atPath: outputURL)
+      } catch {
+         print(error)
+      }
       
       return outputURL
    }
@@ -159,7 +149,7 @@ extension UIViewController: UIImagePickerControllerDelegate {
       let mediaType = info[UIImagePickerControllerMediaType] as! CFString
       if mediaType == kUTTypeMovie {
          let rawVideoURL = info[UIImagePickerControllerMediaURL] as! NSURL
-         UISaveVideoAtPathToSavedPhotosAlbum(rawVideoURL.path!, nil, nil, nil)
+//         UISaveVideoAtPathToSavedPhotosAlbum(rawVideoURL.path!, nil, nil, nil)
          dismiss(animated: true, completion: nil)
 //         convertVideoToGif(videoURL: rawVideoURL as URL)
          cropVideoToSquare(videoURL: rawVideoURL as URL)
