@@ -21,6 +21,7 @@ class WelcomeViewController: UIViewController {
    override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       welcomeImage.image = UIImage.gif(name: "tinaFeyHiFive")!
+      UserDefaults.standard.set(true, forKey: "Welcome View Seen")
    }
 
     override func didReceiveMemoryWarning() {

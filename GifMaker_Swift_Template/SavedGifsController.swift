@@ -24,6 +24,13 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      savedGifs = NSKeyedUnarchiver.unarchiveObject(withFile: gifDirectory) as? [Gif] ?? [Gif]()
+      
+      if !UserDefaults.standard.bool(forKey: "Welcome View Seen") {
+         let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+         navigationController?.pushViewController(welcomeVC, animated: true)
+      }
       savedGifs = NSKeyedUnarchiver.unarchiveObject(withFile: gifDirectory) as? [Gif] ?? [Gif]()
    }
    
@@ -60,7 +67,7 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
    }
    
    func previewVC(_ previewVC: UIViewController, didSave gif: Gif) {
-      gif.gifData = NSData(contentsOfFile: gif.url!.absoluteString)
+      try! gif.gifData = Data(contentsOf: gif.url!)
       savedGifs.append(gif)
       print(NSKeyedArchiver.archiveRootObject(savedGifs, toFile: gifDirectory))
    }

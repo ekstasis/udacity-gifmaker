@@ -290,6 +290,9 @@
                                 <state key="normal" title="SHARE">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="share:" destination="Ilf-GF-t1a" eventType="touchUpInside" id="hdF-3A-j2c"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMj-xi-5Fm">
                                 <constraints>

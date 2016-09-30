@@ -24,7 +24,7 @@ class Gif: NSObject, NSCoding {
    var caption: String?
    var gifImage: UIImage?
    var videoURL: URL?
-   var gifData: NSData?
+   var gifData: Data?
 
    init(gifURL: URL, videoURL: URL, caption: String?) {
       self.url = gifURL
@@ -44,7 +44,7 @@ class Gif: NSObject, NSCoding {
       videoURL = aDecoder.decodeObject(forKey: "videoURL") as? URL
       caption = aDecoder.decodeObject(forKey: "caption") as? String
       gifImage = aDecoder.decodeObject(forKey: "gifImage") as? UIImage
-      gifData = aDecoder.decodeObject(forKey: "gifData") as? NSData
+      gifData = aDecoder.decodeObject(forKey: "gifData") as? Data
    }
    
    func encode(with aCoder: NSCoder) {

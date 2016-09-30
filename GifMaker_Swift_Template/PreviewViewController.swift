@@ -33,12 +33,15 @@ class PreviewViewController: UIViewController {
    
    @IBAction func share(_ sender: UIButton) {
       let url = gif!.url!
+      print(url)
       let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-      activityVC.completionWithItemsHandler = { _, completed, _, _ in
-         if completed {
-            let _ = self.navigationController?.popToRootViewController(animated: true)
-         }
-      }
+         self.dismiss(animated: true, completion: nil)
+//      activityVC
+//         .completionWithItemsHandler = { _, completed, _, _ in
+//         if completed {
+//            let _ = self.navigationController?.popToRootViewController(animated: true)
+//         }
+//      }
       present(activityVC, animated: true, completion: nil)
    }
    
