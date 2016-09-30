@@ -45,7 +45,6 @@ class Gif: NSObject, NSCoding {
       caption = aDecoder.decodeObject(forKey: "caption") as? String
       gifImage = aDecoder.decodeObject(forKey: "gifImage") as? UIImage
       gifData = aDecoder.decodeObject(forKey: "gifData") as? NSData
-      return
    }
    
    func encode(with aCoder: NSCoder) {
