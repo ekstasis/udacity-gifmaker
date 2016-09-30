@@ -18,7 +18,7 @@ import Foundation
 
 import UIKit
 
-struct Gif {
+class Gif: NSObject, NSCoding {
    
    var url: URL?
    var caption: String?
@@ -38,7 +38,26 @@ struct Gif {
       gifImage = UIImage.gif(name: name)
    }
    
-//
+   
+   required init?(coder aDecoder: NSCoder) {
+      url = aDecoder.decodeObject(forKey: "url") as? URL
+      videoURL = aDecoder.decodeObject(forKey: "videoURL") as? URL
+      caption = aDecoder.decodeObject(forKey: "caption") as? String
+      gifImage = aDecoder.decodeObject(forKey: "gifImage") as? UIImage
+      gifData = aDecoder.decodeObject(forKey: "gifData") as? NSData
+      return
+   }
+   
+   func encode(with aCoder: NSCoder) {
+      
+      aCoder.encode(url, forKey: "url")
+      aCoder.encode(videoURL, forKey: "videoURL")
+      aCoder.encode(caption, forKey: "caption")
+      aCoder.encode(gifImage, forKey: "gifImage")
+      aCoder.encode(gifData, forKey: "gifData")
+   }
+}
+
 //-(instancetype)initWithCoder:(NSCoder *)decoder{
 //
 //    self = [super init];
@@ -52,7 +71,8 @@ struct Gif {
 //
 //    return self;
 //}
-//
+   
+
 //-(void)encodeWithCoder:(NSCoder *)coder {
 //    [coder encodeObject:self.url forKey: @"gifURL"];
 //    [coder encodeObject:self.caption forKey: @"caption"];
@@ -62,4 +82,3 @@ struct Gif {
 //}
 //
 //@end
-}

@@ -113,7 +113,6 @@ extension UIViewController: UINavigationControllerDelegate {
       exporter?.outputFileType = AVFileTypeQuickTimeMovie
       exporter?.exportAsynchronously() {
          let croppedURL = exporter?.outputURL
-         print(croppedURL)
          self.convertVideoToGif(videoURL: croppedURL!)
       }
    }
@@ -129,7 +128,6 @@ extension UIViewController: UINavigationControllerDelegate {
       } catch {
          print(error)
       }
-      print(try! fileManager.contentsOfDirectory(atPath: outputURL))
       outputURL = outputURL.appending("/output.mov")
       // Remove Existing File
       do {

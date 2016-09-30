@@ -46,14 +46,16 @@
                                     <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GifCell" id="2ru-Ed-G6h" customClass="GifCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Gif Cell" id="2ru-Ed-G6h" customClass="SavedGifCell" customModule="GifMaker_Swift_Template" customModuleProvider="target">
                                         <rect key="frame" x="99" y="8" width="177" height="177"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sHD-OW-keS"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sHD-OW-keS">
+                                                    <color key="backgroundColor" red="1" green="0.20176263795352034" blue="0.80367307782504471" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -78,10 +80,14 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="gifImageView" destination="sHD-OW-keS" id="VAe-LJ-h3J"/>
+                                            <outlet property="gifImageView" destination="sHD-OW-keS" id="nPn-3c-Bn5"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="upq-jB-3dI" id="j94-zd-JfI"/>
+                                    <outlet property="delegate" destination="upq-jB-3dI" id="W2j-JF-mbN"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhk-Vz-Mtq">
                                 <constraints>
@@ -97,25 +103,9 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graphicCollectionEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="IOx-EA-SOI"/>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's create some GIFs!! Get started by tapping the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gY-ir-reI">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="41" id="mjf-NH-Skp"/>
-                                            <constraint firstAttribute="width" constant="303" id="yvT-sb-qvt"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.34509803921568627" green="0.39215686274509803" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="mjf-NH-Skp"/>
-                                                <exclude reference="yvT-sb-qvt"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="mjf-NH-Skp"/>
-                                                <include reference="yvT-sb-qvt"/>
-                                            </mask>
-                                        </variation>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -148,6 +138,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Collection" id="7HF-Yq-Lti"/>
+                    <connections>
+                        <outlet property="collectionView" destination="hbv-Kk-KXX" id="dkc-gv-uaj"/>
+                        <outlet property="noGifsView" destination="rBY-mr-O59" id="eqI-Gc-kOR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mO-R1-5Re" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,6 +240,9 @@
                                         <state key="normal" title="CREATE AND SAVE">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="createAndSave:" destination="cB7-Y1-ZFX" eventType="touchUpInside" id="g98-lM-NkG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
