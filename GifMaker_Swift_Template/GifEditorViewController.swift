@@ -14,10 +14,17 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
    @IBOutlet weak var gifImageView: UIImageView!
    var gif: Gif? = nil
    
+   var attributes : [String: Any] {
+      let color = UIColor.white
+      let font: UIFont = UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!
+      return [NSForegroundColorAttributeName:color, NSFontAttributeName:font, NSStrokeColorAttributeName : UIColor.black, NSStrokeWidthAttributeName : -4] as [String : Any]
+   }
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       
       caption.delegate = self
+      setCaptionAttributes()
     }
    
    override func viewWillAppear(_ animated: Bool) {
@@ -25,17 +32,20 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
       let gifFromRecording = gif?.gifImage
       gifImageView.image = gifFromRecording
       subscribeToKeyboardNotifications()
+      navigationController?.navigationBar.isHidden = false
       title = "Add a Caption"
 //      applyTheme
    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-   func textFieldDidBeginEditing(_ textField: UITextField) {
-      textField.placeholder = ""
+   func setCaptionAttributes() {
+      let string = NSAttributedString(string: "Add A Caption", attributes: attributes)
+      caption.attributedText = string
+      caption.textAlignment = .center
+   }
+   
+   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      textField.typingAttributes = attributes
+      return true
    }
    
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {

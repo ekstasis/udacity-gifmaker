@@ -14,6 +14,7 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
    @IBOutlet weak var noGifsView: UIStackView!
    @IBOutlet weak var collectionView: UICollectionView!
    
+   
    var savedGifs = [Gif]()
    let cellMargin: CGFloat = 12.0
    
@@ -28,19 +29,24 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
       super.viewDidLoad()
       
       savedGifs = NSKeyedUnarchiver.unarchiveObject(withFile: gifDirectory) as? [Gif] ?? [Gif]()
+         appDelegate.savedGifsVC = self
       
       if !UserDefaults.standard.bool(forKey: "Welcome View Seen") {
          let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-         appDelegate.savedGifsVC = self
          navigationController?.pushViewController(welcomeVC, animated: true)
       }
    }
    
-   override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      let empty = savedGifs.isEmpty 
-      noGifsView.isHidden = !empty
+   
+   
+   override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      
       savedGifs = NSKeyedUnarchiver.unarchiveObject(withFile: gifDirectory) as? [Gif] ?? [Gif]()
+      let empty = savedGifs.isEmpty
+      noGifsView.isHidden = !empty
+      navigationController?.navigationBar.isHidden = empty
+      
       collectionView.reloadData()
    }
    

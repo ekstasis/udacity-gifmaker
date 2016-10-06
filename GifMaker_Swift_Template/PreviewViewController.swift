@@ -38,12 +38,6 @@ class PreviewViewController: UIViewController {
       print(url)
       let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
          self.dismiss(animated: true, completion: nil)
-//      activityVC
-//         .completionWithItemsHandler = { _, completed, _, _ in
-//         if completed {
-//            let _ = self.navigationController?.popToRootViewController(animated: true)
-//         }
-//      }
       present(activityVC, animated: true, completion: nil)
    }
    
