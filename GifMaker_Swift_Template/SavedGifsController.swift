@@ -22,6 +22,8 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
       return directory! + "/savedGifs"
    }
    
+   var appDelegate = UIApplication.shared.delegate as! AppDelegate
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       
@@ -29,15 +31,16 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
       
       if !UserDefaults.standard.bool(forKey: "Welcome View Seen") {
          let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+         appDelegate.savedGifsVC = self
          navigationController?.pushViewController(welcomeVC, animated: true)
       }
-      savedGifs = NSKeyedUnarchiver.unarchiveObject(withFile: gifDirectory) as? [Gif] ?? [Gif]()
    }
    
    override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
       let empty = savedGifs.isEmpty 
       noGifsView.isHidden = !empty
+      savedGifs = NSKeyedUnarchiver.unarchiveObject(withFile: gifDirectory) as? [Gif] ?? [Gif]()
       collectionView.reloadData()
    }
    

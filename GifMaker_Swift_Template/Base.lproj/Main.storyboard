@@ -54,10 +54,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sHD-OW-keS">
-                                                    <color key="backgroundColor" red="1" green="0.20176263795352034" blue="0.80367307782504471" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="sHD-OW-keS" firstAttribute="centerY" secondItem="2ru-Ed-G6h" secondAttribute="centerY" id="3tT-Xx-fXS"/>
                                             <constraint firstItem="sHD-OW-keS" firstAttribute="top" secondItem="2ru-Ed-G6h" secondAttribute="topMargin" constant="-8" id="Vlj-Xn-EIa"/>
@@ -99,7 +100,7 @@
                                     <action selector="presentOptionsWithSender:" destination="upq-jB-3dI" eventType="touchUpInside" id="2mG-ZA-R4e"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-mr-O59">
+                            <stackView contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-mr-O59">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graphicCollectionEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="IOx-EA-SOI"/>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's create some GIFs!! Get started by tapping the button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gY-ir-reI">
@@ -364,6 +365,9 @@
                                     <constraint firstAttribute="width" constant="60" id="nKa-D8-wqn"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="createButton"/>
+                                <connections>
+                                    <action selector="presentOptionsWithSender:" destination="aXC-Xw-CZL" eventType="touchUpInside" id="DbP-Mf-kXo"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-6r-tbq">
                                 <subviews>

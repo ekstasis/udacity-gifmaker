@@ -24,6 +24,8 @@ class PreviewViewController: UIViewController {
       let url = gif!.url!
       gifImage.image = UIImage.gif(url: url.absoluteString)
       // Do any additional setup after loading the view.
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      delegate = appDelegate.savedGifsVC
    }
    
    override func didReceiveMemoryWarning() {

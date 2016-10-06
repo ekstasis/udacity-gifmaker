@@ -17,6 +17,7 @@ let loopCount = 0 // 0 means loop forever
 
 extension UIViewController: UINavigationControllerDelegate {
    
+   
    @IBAction public func presentOptions(sender: UIButton) {
       if !UIImagePickerController.isSourceTypeAvailable(.camera) {
          self.getVideo(source: UIImagePickerControllerSourceType.photoLibrary)
@@ -45,7 +46,7 @@ extension UIViewController: UINavigationControllerDelegate {
       // set picker options: sourcetype, mediatype,   allowsEditing, delegate
       picker.sourceType = source
       picker.mediaTypes = [kUTTypeMovie as String]
-      picker.allowsEditing = true
+      picker.allowsEditing = false
       picker.delegate = self
       
       // present controller
@@ -133,7 +134,7 @@ extension UIViewController: UINavigationControllerDelegate {
       do {
          try fileManager.removeItem(atPath: outputURL)
       } catch {
-         print(error)
+         // first time running, don't worry 
       }
       
       return outputURL

@@ -87,8 +87,6 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
       let gifURL = regift.createGif(caption.text, font: caption.font)
       let newGif = Gif(gifURL: gifURL!, videoURL: gif!.videoURL!, caption: caption.text)
       previewVC.gif = newGif
-      let controllers = navigationController!.viewControllers
-      previewVC.delegate = controllers[controllers.count - 2] as? PreviewVCDelegate
       dismissKeyboard()
       navigationController?.pushViewController(previewVC, animated: true)
    }

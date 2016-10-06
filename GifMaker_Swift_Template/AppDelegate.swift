@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Properties
     
     var window: UIWindow?
+   var savedGifsVC: SavedGifsVC?
 
     // MARK: UIApplicationDelegate
     
