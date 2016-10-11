@@ -37,6 +37,9 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
       colorNavBar()
       title = "Add a Caption"
       
+      let attributes = [NSForegroundColorAttributeName : UIColor.white]
+      navigationController?.navigationBar.titleTextAttributes = attributes
+      navigationController?.navigationBar.tintColor = .white
    }
 
    func setCaptionAttributes() {

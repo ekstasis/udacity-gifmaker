@@ -34,6 +34,13 @@ class PreviewViewController: UIViewController {
       
    }
    
+   override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      let attributes = [NSForegroundColorAttributeName : UIColor.white]
+      navigationController?.navigationBar.titleTextAttributes = attributes
+      navigationController?.navigationBar.tintColor = .white
+   }
+   
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.

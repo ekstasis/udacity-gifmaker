@@ -122,15 +122,15 @@
 		EDFAA8EB1CDA99A500D2CB08 /* GifMaker_Swift_Template */ = {
 			isa = PBXGroup;
 			children = (
+				D830E5311D96F4C500D55938 /* WelcomeViewController.swift */,
+				D8722C4F1D9EAC4F00465F4D /* SavedGifsController.swift */,
+				D830E5351D96F4D300D55938 /* GifEditorViewController.swift */,
+				D830E5371D96F4DE00D55938 /* PreviewViewController.swift */,
 				D8D418CA1D9ED5E200CFD6E9 /* DetailVC.swift */,
 				D830E53B1D96F84300D55938 /* UIViewController_Record_Extension.swift */,
 				D87795721DAD666C007F87B2 /* VC_NavBar_Color_Extension.swift */,
 				D888605C1D981C3D00F87BFD /* UIImage+Gif.swift */,
 				EDFAA8EC1CDA99A500D2CB08 /* AppDelegate.swift */,
-				D830E5311D96F4C500D55938 /* WelcomeViewController.swift */,
-				D830E5351D96F4D300D55938 /* GifEditorViewController.swift */,
-				D830E5371D96F4DE00D55938 /* PreviewViewController.swift */,
-				D8722C4F1D9EAC4F00465F4D /* SavedGifsController.swift */,
 				D8722C511D9EB16100465F4D /* SavedGifCell.swift */,
 				D80421B91D9840D900C28387 /* Gif.swift */,
 				A94CC3D71D21C85A00DC758E /* Assets */,

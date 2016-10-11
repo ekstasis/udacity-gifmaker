@@ -38,16 +38,16 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
       
    }
    
-   
-   
    override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       
       savedGifs = NSKeyedUnarchiver.unarchiveObject(withFile: gifDirectory) as? [Gif] ?? [Gif]()
       let empty = savedGifs.isEmpty
       noGifsView.isHidden = !empty
-      navigationController?.navigationBar.isHidden = empty
       
+      navigationController?.navigationBar.isHidden = empty
+      let attributes = [NSForegroundColorAttributeName : UIColor.black]
+      navigationController?.navigationBar.titleTextAttributes = attributes
       colorNavBar()
       
       collectionView.reloadData()

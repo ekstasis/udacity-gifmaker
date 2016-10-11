@@ -195,7 +195,7 @@
                     <navigationItem key="navigationItem" title="Title" id="98w-hN-q9u">
                         <barButtonItem key="backBarButtonItem" title=" " id="zBO-os-VQD"/>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="kvy-5V-EgW">
-                            <color key="tintColor" red="1" green="0.25490196079999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="presentPreview:" destination="gN0-HT-VRx" id="cuP-AU-rTd"/>
                             </connections>
