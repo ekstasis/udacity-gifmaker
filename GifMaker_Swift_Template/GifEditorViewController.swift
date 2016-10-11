@@ -25,6 +25,7 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
       
       caption.delegate = self
       setCaptionAttributes()
+      
     }
    
    override func viewWillAppear(_ animated: Bool) {

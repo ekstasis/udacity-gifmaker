@@ -68,21 +68,14 @@ extension UIViewController: UINavigationControllerDelegate {
       let editorVC = storyboard?.instantiateViewController(withIdentifier: "GifEditorViewController") as! GifEditorViewController
       editorVC.gif = gif
       DispatchQueue.main.async {
+         let backButton = UIBarButtonItem()
+         backButton.title = ""
+         self.navigationItem.backBarButtonItem = backButton
+         
          self.navigationController?.pushViewController(editorVC, animated: true)
       }
    }
-   //   -(void)cropVideoToSquare:(NSURL*)rawVideoURL start:(NSNumber*)start duration:(NSNumber*)duration {
-   //   //Create the AVAsset and AVAssetTrack
-   //   AVAsset *videoAsset = [AVAsset assetWithURL:rawVideoURL];
-   //   AVAssetTrack *videoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
    
-   //   // Crop to square
-   //   AVMutableVideoComposition* videoComposition = [AVMutableVideoComposition videoComposition];
-   //   videoComposition.renderSize = CGSizeMake(videoTrack.naturalSize.height, videoTrack.naturalSize.height);
-   //   videoComposition.frameDuration = CMTimeMake(1, 30);
-   //
-   //   AVMutableVideoCompositionInstruction *instruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
-   //   instruction.timeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(60, 30) );
    func cropVideoToSquare(videoURL: URL) {
       // Create the AVAsset and AVAssetTrack
       let videoAsset = AVAsset(url: videoURL)

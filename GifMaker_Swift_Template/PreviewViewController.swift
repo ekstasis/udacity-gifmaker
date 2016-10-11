@@ -15,6 +15,8 @@ protocol PreviewVCDelegate {
 class PreviewViewController: UIViewController {
    
    @IBOutlet weak var gifImage: UIImageView!
+   @IBOutlet weak var shareButton: UIButton!
+   @IBOutlet weak var createButton: UIButton!
    
    var gif: Gif?
    var delegate: PreviewVCDelegate? 
@@ -26,6 +28,10 @@ class PreviewViewController: UIViewController {
       // Do any additional setup after loading the view.
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
       delegate = appDelegate.savedGifsVC
+      
+      shareButton.layer.borderWidth = 5.0
+      createButton.layer.cornerRadius = 5.0
+      
    }
    
    override func didReceiveMemoryWarning() {
@@ -35,7 +41,6 @@ class PreviewViewController: UIViewController {
    
    @IBAction func share(_ sender: UIButton) {
       let url = gif!.url!
-      print(url)
       let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
          self.dismiss(animated: true, completion: nil)
       present(activityVC, animated: true, completion: nil)

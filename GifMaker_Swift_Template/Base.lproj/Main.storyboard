@@ -231,6 +231,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="lh1-h6-W5Y"/>
                                         </constraints>
+                                        <size key="titleShadowOffset" width="11" height="8"/>
                                         <state key="normal" title="SHARE">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -269,7 +270,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Preview" id="SWX-N6-oaS"/>
                     <connections>
+                        <outlet property="createButton" destination="xoi-MZ-GNH" id="Ekq-GD-eOh"/>
                         <outlet property="gifImage" destination="HQu-c2-zTO" id="GIo-AQ-02W"/>
+                        <outlet property="shareButton" destination="lnU-9g-0xe" id="7oF-OU-1st"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCC-tI-bRp" userLabel="First Responder" sceneMemberID="firstResponder"/>

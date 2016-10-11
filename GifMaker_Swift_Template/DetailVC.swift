@@ -27,7 +27,6 @@ class DetailVC: UIViewController {
    @IBAction func share(_ sender: AnyObject) {
       let activityVC = UIActivityViewController(activityItems: [gif!.gifData!], applicationActivities: nil)
       activityVC.completionWithItemsHandler = { (_,_,_,_) in
-         print("activity CH")
       }
       present(activityVC, animated: true)
    }

@@ -35,6 +35,7 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
          let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
          navigationController?.pushViewController(welcomeVC, animated: true)
       }
+      
    }
    
    
@@ -78,6 +79,5 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
    func previewVC(_ previewVC: UIViewController, didSave gif: Gif) {
       try! gif.gifData = Data(contentsOf: gif.url!)
       savedGifs.append(gif)
-      print(NSKeyedArchiver.archiveRootObject(savedGifs, toFile: gifDirectory))
    }
 }

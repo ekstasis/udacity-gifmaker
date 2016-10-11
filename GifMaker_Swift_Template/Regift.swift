@@ -30,30 +30,6 @@ private struct Group {
     func wait() { let _ = group.wait(timeout: DispatchTime.distantFuture) }
 }
 
-/// Easily convert a video to a GIF. It can convert the whole thing, or you can choose a section to trim out.
-///
-/// Synchronous Usage:
-///
-///      let regift = Regift(sourceFileURL: movieFileURL, frameCount: 24, delayTime: 0.5, loopCount: 7)
-///      print(regift.createGif())
-///
-///      // OR
-///
-///      let trimmedRegift = Regift(sourceFileURL: movieFileURL, startTime: 30, duration: 15, frameRate: 15)
-///      print(trimmedRegift.createGif())
-///
-/// Asynchronous Usage:
-///
-///      let regift = Regift.createGIFFromSource(movieFileURL, frameCount: 24, delayTime: 0.5, loopCount: 7) { (result) in
-///          print(result)
-///      }
-///
-///      // OR
-///
-///      let trimmedRegift = Regift.createGIFFromSource(movieFileURL, startTime: 30, duration: 15, frameRate: 15) { (result) in
-///          print(result)
-///      }
-///
 @objc open class Regift: NSObject {
     
     // Constants removed from struct
