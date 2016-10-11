@@ -48,6 +48,8 @@ class SavedGifsVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
       noGifsView.isHidden = !empty
       navigationController?.navigationBar.isHidden = empty
       
+      colorNavBar()
+      
       collectionView.reloadData()
    }
    

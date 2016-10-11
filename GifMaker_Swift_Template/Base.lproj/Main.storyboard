@@ -12,9 +12,10 @@
         <scene sceneID="DON-fa-Cma">
             <objects>
                 <navigationController storyboardIdentifier="CollectionNav" id="wK0-AV-yDw" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hqo-Bs-xuq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="hqo-Bs-xuq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
@@ -34,7 +35,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zVw-uv-suS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lpB-Vr-Vzf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hbv-Kk-KXX">
@@ -192,6 +193,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="98w-hN-q9u">
+                        <barButtonItem key="backBarButtonItem" title=" " id="zBO-os-VQD"/>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="kvy-5V-EgW">
                             <color key="tintColor" red="1" green="0.25490196079999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

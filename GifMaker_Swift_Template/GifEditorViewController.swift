@@ -34,8 +34,9 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
       gifImageView.image = gifFromRecording
       subscribeToKeyboardNotifications()
       navigationController?.navigationBar.isHidden = false
+      colorNavBar()
       title = "Add a Caption"
-//      applyTheme
+      
    }
 
    func setCaptionAttributes() {

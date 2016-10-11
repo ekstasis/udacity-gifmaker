@@ -16,6 +16,7 @@
 		D830E53C1D96F84300D55938 /* UIViewController_Record_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830E53B1D96F84300D55938 /* UIViewController_Record_Extension.swift */; };
 		D8722C501D9EAC4F00465F4D /* SavedGifsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8722C4F1D9EAC4F00465F4D /* SavedGifsController.swift */; };
 		D8722C521D9EB16100465F4D /* SavedGifCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8722C511D9EB16100465F4D /* SavedGifCell.swift */; };
+		D87795731DAD666C007F87B2 /* VC_NavBar_Color_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87795721DAD666C007F87B2 /* VC_NavBar_Color_Extension.swift */; };
 		D888605D1D981C3D00F87BFD /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888605C1D981C3D00F87BFD /* UIImage+Gif.swift */; };
 		D8D418CB1D9ED5E200CFD6E9 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D418CA1D9ED5E200CFD6E9 /* DetailVC.swift */; };
 		EDDFC4DC1CE261A600A586CA /* tinaFeyHiFive.gif in Resources */ = {isa = PBXBuildFile; fileRef = EDDFC4DB1CE261A600A586CA /* tinaFeyHiFive.gif */; };
@@ -47,6 +48,7 @@
 		D830E53B1D96F84300D55938 /* UIViewController_Record_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController_Record_Extension.swift; sourceTree = "<group>"; };
 		D8722C4F1D9EAC4F00465F4D /* SavedGifsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedGifsController.swift; sourceTree = "<group>"; };
 		D8722C511D9EB16100465F4D /* SavedGifCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedGifCell.swift; sourceTree = "<group>"; };
+		D87795721DAD666C007F87B2 /* VC_NavBar_Color_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC_NavBar_Color_Extension.swift; sourceTree = "<group>"; };
 		D888605C1D981C3D00F87BFD /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		D8A31FB41D96EE5700DD8FAF /* SquareVideoTestApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SquareVideoTestApp.xcodeproj; path = "../ios-nd-gif-maker-objc-ud/SquareVideoTestApp/SquareVideoTestApp.xcodeproj"; sourceTree = "<group>"; };
 		D8D418CA1D9ED5E200CFD6E9 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				D8D418CA1D9ED5E200CFD6E9 /* DetailVC.swift */,
 				D830E53B1D96F84300D55938 /* UIViewController_Record_Extension.swift */,
+				D87795721DAD666C007F87B2 /* VC_NavBar_Color_Extension.swift */,
 				D888605C1D981C3D00F87BFD /* UIImage+Gif.swift */,
 				EDFAA8EC1CDA99A500D2CB08 /* AppDelegate.swift */,
 				D830E5311D96F4C500D55938 /* WelcomeViewController.swift */,
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87795731DAD666C007F87B2 /* VC_NavBar_Color_Extension.swift in Sources */,
 				EDFAA9201CDA9C3100D2CB08 /* Regift.swift in Sources */,
 				D830E53C1D96F84300D55938 /* UIViewController_Record_Extension.swift in Sources */,
 				D8D418CB1D9ED5E200CFD6E9 /* DetailVC.swift in Sources */,
